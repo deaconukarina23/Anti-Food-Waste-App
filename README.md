@@ -49,6 +49,6 @@ Crearea unei platforme bazate pe comunitate care promoveaza constientizarea cons
 
 Este o aplicatie web care ii ajuta pe utilizatori sa reduca risipa alimentara printr-un sistem simplu de gestionare a produselor. Proiectul imbina partea tehnica (frontend + backend) cu un scop social si ecologic.
 
-** Echipa:** 
+**Echipa:** 
 - Deaconu Beatrice-Elena
 - Deaconu Karina-Maria
