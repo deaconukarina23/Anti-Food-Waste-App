@@ -6,8 +6,6 @@ Aplicatie web pentru reducerea risipei alimentare
 
 Crearea unei platforme bazate pe comunitate care promoveaza constientizarea consumului responsabil si faciliteaza schimbul de produse alimentare.
 
---
-
 ## Functionalitati principale
 
 1. **Lista de alimente**
@@ -32,8 +30,6 @@ Crearea unei platforme bazate pe comunitate care promoveaza constientizarea cons
 - utilizatorul poate distribui produsele disponibile pe Instagram si Facebook
 - link public pentru vizualizarea produsului
 
---
-
 ## Tehnologii utilizate
 
 **Frontend:** React.js - pentru realizarea interfetei aplicatiei
@@ -42,8 +38,6 @@ Crearea unei platforme bazate pe comunitate care promoveaza constientizarea cons
 **ORM:** Prisma - pentru legatura intre cod si baza de date
 **Versionare:** Git + GitHub - pentru salvarea si urmarirea modificarilor
 
---
-
 ## Plan de dezvoltare
 
 1. Analiza: stabilirea scopului si a functionalitatilor de baza
@@ -51,13 +45,9 @@ Crearea unei platforme bazate pe comunitate care promoveaza constientizarea cons
 3. Frontend: realizarea interfetei web in React si legarea cu API-ul
 4. Testare: verificarea functiilor principale si pregatirea prezentarii finale
 
---
-
 ## Concluzie
 
 Este o aplicatie web care ii ajuta pe utilizatori sa reduca risipa alimentara printr-un sistem simplu de gestionare a produselor. Proiectul imbina partea tehnica (frontend + backend) cu un scop social si ecologic.
-
---
 
 ** Echipa:** 
 - Deaconu Beatrice-Elena
