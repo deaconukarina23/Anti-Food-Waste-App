@@ -1,0 +1,26 @@
+
+.inputAdauga {
+    width: 300px;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+select {
+    width: 317px;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#btnAdauga {
+    width: 316px;
+    padding: 10px;
+    background: green;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,30 @@
+.containerProduse {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    gap: 20px;
+    padding: 20px;
+}
+
+.produs {
+    border: 1px solid green;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 5px 5px 5px rgba(0, 50, 0, 0.3);
+    border-radius: 20px;
+}
+
+#btnClaim {
+    width: 150px;
+    padding: 10px;
+    background: green;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#selectCategorie {
+    width: 300px;
+    padding: 8px;
+    border-radius: 4px;
+    margin-left: 20px;
+}

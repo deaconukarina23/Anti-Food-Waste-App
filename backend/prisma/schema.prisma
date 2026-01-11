@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  nume     String
+  email    String   @unique
+  parola   String
+  produse  Produs[]
+  claims   Claim[]
+  prieteni Prieten[]
+}
+
+model Produs {
+  id           Int       @id @default(autoincrement())
+  nume         String
+  cantitate    Int
+  dataExpirare DateTime
+  disponibil   Boolean   @default(false)
+  dat          Boolean   @default(false)
+  idUser       Int
+  user         User      @relation(fields: [idUser], references: [id])
+  categorie    String
+  claims       Claim[]
+}
+
+model Claim {
+  id        Int      @id @default(autoincrement())
+  status    String   @default("pending")
+  data      DateTime @default(now())
+  idUser    Int
+  idProdus  Int
+  user      User     @relation(fields: [idUser], references: [id])
+  produs    Produs   @relation(fields: [idProdus], references: [id])
+}
+
+model Prieten {
+  id         Int     @id @default(autoincrement())
+  idUser     Int
+  idPrieten  Int
+  status     String  @default("In asteptare")
+  user       User    @relation(fields: [idUser], references: [id])
+}

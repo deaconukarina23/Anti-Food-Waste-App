@@ -1,0 +1,20 @@
+#btnTrimiteCerere {
+    background-color: green;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#emailPrieten{
+    width: 300px;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.titlu{
+    margin-bottom: 20px;
+    color: green;
+}
