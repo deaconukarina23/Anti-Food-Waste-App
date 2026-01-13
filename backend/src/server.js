@@ -34,10 +34,11 @@ app.get('/', (req, res) => {
 
 //configurare sesiune utilizator
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: 'super-secret',
     resave: false,
     saveUninitialized: false,
     cookie: { 
+        maxAge: 24 * 60 * 60 * 1000,
         secure: true,
         sameSite: "none"
     } 
