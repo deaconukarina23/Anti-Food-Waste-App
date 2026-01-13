@@ -32,6 +32,8 @@ app.get('/', (req, res) => {
 }
 );
 
+app.set("trust proxy", 1);
+
 //configurare sesiune utilizator
 app.use(session({
     secret: process.env.SESSION_SECRET,
