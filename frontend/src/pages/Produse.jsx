@@ -17,7 +17,7 @@ function Produse() {
   const [categorieSelectata, setCategorieSelectata] = useState("Toate"); //reține categoria aleasă în filtru
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/produse", {
+    fetch("http://devoted-harmony-production.up.railway.app/api/produse", {
       credentials: "include",
     })
       .then(res => res.json())
@@ -39,7 +39,7 @@ function Produse() {
 
 
   const handleClaim = async (idProdus) => {
-    const res = await fetch(`http://localhost:3000/api/claims/${idProdus}`, {
+    const res = await fetch(`http://devoted-harmony-production.up.railway.app/api/claims/${idProdus}`, {
       method: "POST",
       credentials: "include",
     });
