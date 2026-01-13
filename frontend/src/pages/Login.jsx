@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault();  //oprește reîncărcarea paginii la trimiterea formularului
 
     //cerere către backend (API) pentru autentificare
-    const res=await fetch('http://devoted-harmony-production.up.railway.app/api/auth/login', { 
+    const res=await fetch('http://localhost:3000/api/auth/login', { 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },  //specificam ca trimitem date de tip json
       credentials: 'include',  //permite trimiterea și primirea de cookie-uri/sesiuni
