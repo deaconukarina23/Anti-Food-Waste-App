@@ -1,6 +1,13 @@
 
+#formularAdaugare{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
 .inputAdauga {
-    width: 300px;
+    width: 400px;
     padding: 8px;
     margin-bottom: 12px;
     border: 1px solid #ccc;
@@ -8,7 +15,7 @@
 }
 
 select {
-    width: 317px;
+    width: 417px;
     padding: 8px;
     margin-bottom: 12px;
     border: 1px solid #ccc;
@@ -16,7 +23,7 @@ select {
 }
 
 #btnAdauga {
-    width: 316px;
+    width: 416px;
     padding: 10px;
     background: green;
     color: white;

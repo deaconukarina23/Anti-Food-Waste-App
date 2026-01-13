@@ -26,6 +26,8 @@ function Prieteni() {
     incarcaTot();
   }, []);
 
+
+  //trimite cerere noua
   const trimiteCerere=async(e)=>{
     e.preventDefault();
     const res=await fetch("http://localhost:3000/api/prieteni", {
@@ -42,7 +44,7 @@ function Prieteni() {
     }
     alert("Cerere trimisă cu succes!");
     setEmail("");
-    incarcaTot();
+    incarcaTot(); //reîncărcăm listele pentru a vedea schimbarea
   }
 
   const accepta=async(id)=>{
@@ -59,6 +61,7 @@ function Prieteni() {
     incarcaTot();
   }
 
+  //respinge cerere
   const respinge=async(id)=>{
     const res=await fetch(`http://localhost:3000/api/prieteni/cereri/${id}/refuza`, {
       method: "PATCH",
@@ -77,6 +80,7 @@ function Prieteni() {
     <div>
       <h1>Prieteni</h1>
 
+      {/* sectiune trimitere cereri */}
       <h3 className="titlu">Adauga prieten</h3>
       <form onSubmit={trimiteCerere}>
         <input id="emailPrieten" type="email" placeholder="Email prieten" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -85,26 +89,31 @@ function Prieteni() {
 
       <hr/>
 
+      {/* Sectiune acceptare/refuzare cereri */}
       <h3 className="titlu">Cereri de prietenie</h3>
       {cereri.length === 0 ? (
         <p>Nu ai cereri de prietenie.</p>
       ) : (
         cereri.map((c) => (
-          <div key={c.id}>
+          <div id="cererePrietenie" key={c.id}>
             <p>{c.nume} ({c.email})</p>
-            <button onClick={() => accepta(c.id)}>Accepta</button>
-            <button onClick={() => respinge(c.id)}>Respinge</button>
+            <div>
+              <button onClick={() => accepta(c.id)}>Accepta</button>
+              <button onClick={() => respinge(c.id)}>Respinge</button>
+            </div>
           </div>
         ))
       )}
 
       <hr/>
 
+      {/* lista de prieteni */}
       <h3 className="titlu">Prieteni</h3>
       {prieteni.length === 0 && <p>Nu ai prieteni adăugați.</p>}
       {prieteni.map((p) => (
-        <div key={p.id}>
+        <div id="prieteniCard" key={p.id}>
           <h3>{p.nume}</h3>
+          <p>{p.email}</p>
         </div>
       ))}
     </div>

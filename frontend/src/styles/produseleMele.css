@@ -5,4 +5,25 @@
     margin-right: 20px;
     cursor: pointer;
     float: right;
+    padding: 5px 10px;
 }
+
+.produsCard{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    gap: 20px;
+    padding: 20px;
+}
+
+#prodHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid green;
+    padding: 2px 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px;
+    max-width: 95%;
+    margin: auto;
+}
+

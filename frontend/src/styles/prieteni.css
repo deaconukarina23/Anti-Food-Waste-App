@@ -18,3 +18,35 @@
     margin-bottom: 20px;
     color: green;
 }
+
+#prieteniCard{
+    border-radius: 12px;
+    border: 1px solid green;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px;
+    text-align: center;
+    display: flex;
+    padding: 2px 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cererePrietenie{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid green;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px;
+    margin-bottom: 10px;
+}
+
+#cererePrietenie button{
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px;
+    width: 100px;
+}

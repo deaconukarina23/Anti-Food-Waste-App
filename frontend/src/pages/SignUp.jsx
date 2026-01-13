@@ -3,20 +3,22 @@ import {useNavigate} from "react-router-dom";
 import "../styles/auth.css";
 
 function SignUp() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');  //retine textul de la email
   const [parola, setParola] = useState('');
   const [nume, setNume] = useState('');
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
+  //functia care gestioneaza trimiterea datelor la server
   const handleSignUp = async (e) => {
     e.preventDefault();
+    //cerere de tip POST către ruta de signup din backend
     const res = await fetch('http://localhost:3000/api/auth/signup', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' }, //specificăm că datele sunt în format JSON
       credentials: 'include',
-      body: JSON.stringify({ email, parola, nume })
+      body: JSON.stringify({ email, parola, nume }) 
     });
 
     if (res.ok) {
@@ -29,8 +31,8 @@ function SignUp() {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
+    <div className="paginaAuth">
+      <div className="authCard">
         <h2>Sign Up</h2>
         {error && <p className="error-message">{error}</p>}
         <form onSubmit={handleSignUp}>

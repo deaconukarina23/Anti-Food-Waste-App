@@ -32,7 +32,6 @@ model Produs {
 
 model Claim {
   id        Int      @id @default(autoincrement())
-  status    String   @default("pending")
   data      DateTime @default(now())
   idUser    Int
   idProdus  Int

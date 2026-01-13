@@ -1,4 +1,4 @@
-.auth-page {
+.paginaAuth {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -6,19 +6,19 @@
   background: #f4f6f8;
 }
 
-.auth-card {
+.authCard {
   background: white;
   padding: 30px;
   width: 350px;
   border-radius: 8px;
 }
 
-.auth-card h2 {
+.authCard h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.auth-card input {
+.authCard input {
   width: 95%;
   padding: 8px;
   margin-bottom: 12px;
@@ -26,7 +26,7 @@
   border-radius: 4px;
 }
 
-.auth-card button {
+.authCard button {
   width: 100%;
   padding: 10px;
   background: green;
@@ -35,15 +35,15 @@
   cursor: pointer;
 }
 
-.auth-card button:hover {
+.authCard button:hover {
   background: #43a047;
 }
 
-.auth-card p {
+.authCard p {
   text-align: center;
   margin-top: 15px;
 }
 
-.auth-card a {
+.authCard a {
   color: green;
 }

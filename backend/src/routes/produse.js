@@ -4,73 +4,67 @@ const requireAuth = require("../middleware/requireAuth");
 
 const router = express.Router();
 
-// Produsele mele
-// router.get("/", requireAuth, async (req, res) => {
-//   const produse = await prisma.produs.findMany({
-//     where: { disponibil: true },
-//     include: { categorie: true, user: true }
-//   });
-//   res.json(produse);
-// });
-
-
-// adaug produs
+//adauga produs
 router.post("/", requireAuth, async (req, res) => {
-  const { nume, cantitate, dataExpirare, categorie } = req.body;
+    const { nume, cantitate, dataExpirare, categorie } = req.body;
+    
+    if(!req.session.idUser){
+        return res.status(401).json({ message: 'Neautentificat' });
+    }
 
-  if(!req.session.idUser){
-    return res.status(401).json({ message: 'Neautentificat' });
-  }
+    //se creeaza un produs
+    const produs = await prisma.produs.create({
+        data: {
+        nume,
+        cantitate,
+        dataExpirare: new Date(dataExpirare),
+        categorie,
+        idUser: req.session.idUser,
+        },
+    });
 
-  const produs = await prisma.produs.create({
-    data: {
-      nume,
-      cantitate,
-      dataExpirare: new Date(dataExpirare),
-      categorie,
-      idUser: req.session.idUser,
-    },
-  });
-
-  res.status(201).json(produs);
+    res.status(201).json(produs);
 });
 
 //Produsele mele
 router.get("/me", requireAuth, async (req, res) => {
     const produse = await prisma.produs.findMany({
         where: {
-            idUser: req.session.idUser,
-            dat: false,
+            idUser: req.session.idUser, //doar produsele utilizatorului curent
+            dat: false,  //nu mai apar produsele la care alti useri au dat claim
         },
         orderBy: {
-            dataExpirare: "asc",
-        },
+            dataExpirare: "asc",  //apar primele cele care exprira mai repede
+        }
     });
     res.json(produse);
 });
 
-//produsele disponibile
+//produsele disponibile(ale prietenilor)
 router.get("/", requireAuth, async (req, res) => {
     const prieteni = await prisma.prieten.findMany({
         where: {
-            idUser: req.session.idUser,
+            idUser: req.session.idUser, //doar produsele prietenii utilizatorului logat acum
             status: "Acceptat",
         },
         select: {
             idPrieten: true
         },
     });
+
+    //extragem doar id-urile prietenilor
     const prietenIds = prieteni.map(p => p.idPrieten);
 
+    //luam produsele disponibile
     const produse = await prisma.produs.findMany({
         where: {
-            idUser: { in: prietenIds },
+            idUser: { in: prietenIds }, //id-ul userului care a postat produsul trebuie sa fie in lista de prieteni 
             disponibil: true,
             dat: false,
         },
         include:{
             user: {
-                select: { nume: true }
+                select: { nume: true }  //avem nevoie de numele utilizatorului
             }
         }
     });
@@ -87,7 +81,7 @@ router.patch("/:id/disponibil", requireAuth, async (req, res) => {
         idUser: req.session.idUser 
     },
     data: { 
-        disponibil: true 
+        disponibil: true //il facem vizibil doar pentru prieteni
     },
   });
 
