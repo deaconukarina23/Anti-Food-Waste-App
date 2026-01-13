@@ -8,14 +8,14 @@ function Prieteni() {
 
   const incarcaTot=async()=>{
     //prieteni accepati
-    const r1=await fetch("http://devoted-harmony-production.up.railway.app/api/prieteni", {
+    const r1=await fetch("https://devoted-harmony-production.up.railway.app/api/prieteni", {
       credentials: "include",
     });
     const d1=await r1.json();
     setPrieteni(Array.isArray(d1)?d1:[]);
 
     //cereri de prietenie
-    const r2=await fetch("http://devoted-harmony-production.up.railway.app/api/prieteni/cereri", {
+    const r2=await fetch("https://devoted-harmony-production.up.railway.app/api/prieteni/cereri", {
       credentials: "include",
     });
     const d2=await r2.json();
@@ -30,7 +30,7 @@ function Prieteni() {
   //trimite cerere noua
   const trimiteCerere=async(e)=>{
     e.preventDefault();
-    const res=await fetch("http://devoted-harmony-production.up.railway.app/api/prieteni", {
+    const res=await fetch("https://devoted-harmony-production.up.railway.app/api/prieteni", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -48,7 +48,7 @@ function Prieteni() {
   }
 
   const accepta=async(id)=>{
-    const res=await fetch(`http://devoted-harmony-production.up.railway.app/api/prieteni/cereri/${id}/accepta`, {
+    const res=await fetch(`https://devoted-harmony-production.up.railway.app/api/prieteni/cereri/${id}/accepta`, {
       method: "PATCH",
       credentials: "include",
     });
@@ -63,7 +63,7 @@ function Prieteni() {
 
   //respinge cerere
   const respinge=async(id)=>{
-    const res=await fetch(`http://devoted-harmony-production.up.railway.app/api/prieteni/cereri/${id}/refuza`, {
+    const res=await fetch(`https://devoted-harmony-production.up.railway.app/api/prieteni/cereri/${id}/refuza`, {
       method: "PATCH",
       credentials: "include",
     });

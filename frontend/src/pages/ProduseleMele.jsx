@@ -12,7 +12,7 @@ function ProduseleMele() {
 
   useEffect(() => {
     //vericare user autentificat
-    fetch("http://devoted-harmony-production.up.railway.app/api/auth/me", {
+    fetch("https://devoted-harmony-production.up.railway.app/api/auth/me", {
       credentials: "include",
     })
       .then((res) => {
@@ -27,21 +27,21 @@ function ProduseleMele() {
       });
 
     //afisare produse ale userului
-    fetch("http://devoted-harmony-production.up.railway.app/api/produse/me", {
+    fetch("https://devoted-harmony-production.up.railway.app/api/produse/me", {
       credentials: "include",
     })
       .then(res => res.json())
       .then(data => setProduseActive(data));
       
     //afisare produse date
-    fetch("http://devoted-harmony-production.up.railway.app/api/claims/date", {
+    fetch("https://devoted-harmony-production.up.railway.app/api/claims/date", {
       credentials: "include",
     })
       .then(res => res.json())
       .then(data => setProduseDate(data));
 
     //produse revendicate de mine
-    fetch("http://devoted-harmony-production.up.railway.app/api/claims/me", {
+    fetch("https://devoted-harmony-production.up.railway.app/api/claims/me", {
       credentials: "include",
     })
       .then(res => res.json())
@@ -52,7 +52,7 @@ function ProduseleMele() {
 
   //logout
   const logout = async () => {
-    await fetch("http://devoted-harmony-production.up.railway.app/api/auth/logout", {
+    await fetch("https://devoted-harmony-production.up.railway.app/api/auth/logout", {
       method: "POST",
       credentials: "include",
     });
@@ -82,7 +82,7 @@ function ProduseleMele() {
                 {/* buton care schimba starea produsului în "Disponibil" pentru prieteni */}
                 <button disabled={p.disponibil}
                 onClick={ () => {
-                fetch(`http://devoted-harmony-production.up.railway.app/api/produse/${p.id}/disponibil`, {
+                fetch(`https://devoted-harmony-production.up.railway.app/api/produse/${p.id}/disponibil`, {
                   method: "PATCH",
                   credentials: "include",
                 })
