@@ -25,7 +25,7 @@ function AdaugaProdus(){
     const handleSumbit=async(e)=>{
         e.preventDefault(); //previne refresh-ul paginii la apăsarea butonului
         //cerere către backend pentru a salva noul produs
-        const res=await fetch("https://devoted-harmony-production.up.railway.app/api/produse",{
+        const res=await fetch("http://devoted-harmony-production.up.railway.app/api/produse",{
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: "include",

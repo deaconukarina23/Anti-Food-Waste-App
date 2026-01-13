@@ -14,7 +14,7 @@ function SignUp() {
   const handleSignUp = async (e) => {
     e.preventDefault();
     //cerere de tip POST către ruta de signup din backend
-    const res = await fetch('https://devoted-harmony-production.up.railway.app/api/auth/signup', {
+    const res = await fetch('http://devoted-harmony-production.up.railway.app/api/auth/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }, //specificăm că datele sunt în format JSON
       credentials: 'include',
