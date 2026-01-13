@@ -16,7 +16,10 @@ const app = express();
 
 //permite forntend-ului sa comunice cu backendul
 app.use(cors({
-    origin: 'http://localhost:5173',  //adresa serverului de Frontend
+    origin: [
+        'http://localhost:5173',
+        'https://anti-food-waste-app-phi.vercel.app'
+    ],
     credentials: true                 //permite transmitrea sesiunilor/cookies intre origini diferite
 }));
 
@@ -34,7 +37,11 @@ app.use(session({
     secret: 'super-secret',
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 24 * 60 * 60 * 1000 } // 1 zi
+    cookie: { 
+        maxAge: 24 * 60 * 60 * 1000,
+        secure: true,
+        sameSite: "none"
+    } 
 }));
 
 app.use("/api/auth", authRoutes);
